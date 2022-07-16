@@ -16,13 +16,18 @@ export class FavouritesComponent implements OnInit {
   faBone = faBone
   faPaw = faPaw
   favouriteImages = this.favouritesService.getFavouriteImages()
+  loading = true
 
   constructor(private favouritesService: FavouritesService) {}
 
-  // removing god from localStorage
+  // removing dog from localStorage
   removeFavouriteDog(favouriteDog: Image) {
-    // console.log(favouriteDog)
-    localStorage.removeItem('favouriteDog')
+    this.favouritesService.removeFavouriteDog(favouriteDog)
+    this.reload()
+  }
+
+  reload() {
+    this.favouriteImages = this.favouritesService.getFavouriteImages()
   }
   ngOnInit(): void {}
 }
