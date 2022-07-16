@@ -13,9 +13,7 @@
 </div>
 <div class="img-container" style="margin: 60px 0px;">
   <div *ngFor="let favouriteImage of favouriteImages" class="img-card">
-    <a [routerLink]="['/images', favouriteImage.url]">
-      <img [src]="favouriteImage.url" />
-    </a>
+    <img [src]="favouriteImage.url" />
     <div class="img-card-fav">
       <button
         type="button"

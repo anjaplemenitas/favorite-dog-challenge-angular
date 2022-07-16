@@ -17,7 +17,7 @@ export class FavouritesService {
     if (!isInFavorites) {
       storedDogs.push(image)
       localStorage.setItem('dogs', JSON.stringify(storedDogs))
-      console.log('added')
+      // console.log('added')
       return true
     } else {
       return false
