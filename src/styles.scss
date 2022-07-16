@@ -71,14 +71,22 @@ body {
 
 .btn-favourites {
   text-decoration: none;
-  font-size: 16px;
   background-color: white;
   padding: 11px 19px;
-  border-radius: 4px;
   font-family: 'Roboto';
   color: #97403a;
+  border-radius: 4px;
+  font-size: 16px;
+  border: none;
+  transition: 0.2s ease;
+  border: 1px solid #97403a;
 
-  .solid-heart-icon {
+  &:hover {
+    background: #97403a;
+    color: white;
+  }
+
+  .dog-icon {
     padding-right: 10px;
   }
 }
