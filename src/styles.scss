@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-$green: #6EC64E;
-$off-white: #EFEAE4;
-$darker-green: #73BA60;
+$green: #6ec64e;
+$off-white: #efeae4;
+$darker-green: #73ba60;
 
 // FONTS & HEADINGS
 p {
@@ -24,43 +24,47 @@ h2 {
   font-size: 56px;
   font-weight: 700;
   margin: 0px;
-  color: $green;
+  color: black;
 }
 
 h3 {
   font-family: 'Caveat', cursive;
-  font-size: 48px;
+  font-size: 30px;
   font-weight: 400;
   margin: 0px;
 }
 
 h4 {
   font-family: 'Roboto', sans-serif;
-  font-size: 22px;
+  font-size: 16px;
   font-weight: 300;
   margin: 0px;
+  padding-left: 40px;
 }
 
- // BODY
+// BODY
 body {
-  background-color: #EFEAE4;
+  background-color: #efeae4;
   margin: 0px !important;
   padding: 0px !important;
   margin: 0px;
 }
 
 // BUTTONS
-.btn-green {
-  color: white;
-  padding: 14px 24px;
+.btn-reload {
+  text-decoration: none;
+  background-color: white;
+  padding: 11px 19px;
+  font-family: 'Roboto';
+  color: #97403a;
   border-radius: 4px;
-  background: $green;
   font-size: 16px;
   border: none;
   transition: 0.2s ease;
+  border: 1px solid #97403a;
 
   &:hover {
-    background: $darker-green;
+    background: #97403a;
     color: white;
   }
 }
@@ -69,10 +73,10 @@ body {
   text-decoration: none;
   font-size: 16px;
   background-color: white;
-  padding: 14px 24px;
+  padding: 11px 19px;
   border-radius: 4px;
   font-family: 'Roboto';
-  color: palevioletred;
+  color: #97403a;
 
   .solid-heart-icon {
     padding-right: 10px;
@@ -83,10 +87,10 @@ body {
   text-decoration: none;
   font-size: 16px;
   background-color: white;
-  padding: 14px 24px;
+  padding: 11px 19px;
   border-radius: 4px;
   font-family: 'Roboto';
-  color: $green;
+  color: #97403a;
 
   .icon-house {
     padding-right: 10px;
@@ -102,7 +106,7 @@ body {
   color: palevioletred;
   border: none;
 
-  &:hover{
+  &:hover {
     background-color: rgba(219, 112, 147, 0.5);
     color: white;
   }
@@ -110,21 +114,22 @@ body {
 
 //CONTAINERS / LAYOUT / CARDS
 .container-xl {
-  width: 1320px;
+  // width: 1320px;
   margin-right: auto;
   margin-left: auto;
 }
 
 .heading {
-  margin: 20px 0px;
+  margin: 20px 0px 20px 20px;
 }
 
 .img-container {
   display: grid;
-  grid-column-gap: 32px;
-  grid-row-gap: 42px;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   justify-items: center;
+  padding: 30px;
 
   .mv {
     margin: 32px 0px;
@@ -135,14 +140,14 @@ body {
   width: 100%;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
   img {
     height: 300px;
-    width: 387px;
+    width: 100%;
     object-fit: cover;
-    padding: 16px 16px 0px 16px;
+    // padding: 16px 16px 0px 16px;
   }
 
   .img-card-fav {
@@ -152,23 +157,23 @@ body {
 
     .btn-heart {
       font-size: 26px;
-      color: palevioletred;
+      color: #97403a;
       border: none;
       padding: 0px;
       background-color: white;
       position: relative;
 
       &:hover {
-        color: rgb(233, 66, 121);
+        color: rgb(248, 64, 40);
       }
     }
 
-    .plus-icon {
-      font-size: 16px;
-      padding-right: 4px;
-      position: relative;
-      bottom: 4px;
-    }
+    // .plus-icon {
+    //   font-size: 16px;
+    //   padding-right: 4px;
+    //   position: relative;
+    //   bottom: 4px;
+    // }
   }
 }
 
@@ -176,8 +181,9 @@ body {
 .nav-bar {
   text-align: end;
   margin-top: 42px;
+  margin-right: 20px;
 
- .mr {
+  .mr {
     margin-right: 32px;
   }
 }

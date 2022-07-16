@@ -5,6 +5,7 @@ import {
   faCameraRetro,
   faPlus,
   faHeart as fasHeart,
+  faDog,
   faVanShuttle,
   fas,
 } from '@fortawesome/free-solid-svg-icons'
@@ -20,9 +21,11 @@ import { ImagesService } from '../images.service'
 })
 export class ImagesComponent implements OnInit {
   images: Image[] = []
+  allImages: Image[] = []
   loading = true
   fasHeart = fasHeart
   faHeart = faHeart
+  faDog = faDog
   faCameraRetro = faCameraRetro
   faPlus = faPlus
   faGithub = faGithub
@@ -35,69 +38,37 @@ export class ImagesComponent implements OnInit {
 
   addToFavourites(image: Image) {
     // Exclude adding duplicates to Favourites
-    const favs = this.favouritesService.getFavouriteImages()
-    if (favs.includes(image)) {
-      window.alert('This image has already been added to your Favourites')
-    } else {
-      this.favouritesService.addToFavourites(image)
+    const wasAdeded = this.favouritesService.addToFavourites(image)
+    if (wasAdeded) {
       window.alert('Image added to your Favourites.')
       // replace regular heart icon with solid heart icon
-      const heart = document.getElementById('regular-heart')
-      const newElement = document.createElement('fa-icon')
-      newElement.innerHTML = '[icon]="fasHeart"'
-      console.log(heart)
+      // const heart = document.getElementById('regular-heart')
+      // const newElement = document.createElement('fa-icon')
+      // newElement.innerHTML = '[icon]="fasHeart"'
       // heart.parentNode.replaceChild(newElement, heart);
+    } else {
+      window.alert('This image has already been added to your Favourites')
     }
   }
 
   reload() {
-    // reload five random non-duplicate images
-    let newImages = new Array()
-    let index = 0
-
-    while (newImages.length < 5) {
-      index = Math.floor(Math.random() * this.images.length)
-      if (this.images[index].used === false) {
-        this.images[index].used = true
-        newImages.push(this.images[index])
-        // reset 'used' property to false
-        // (as otherwise reload() would be limited to 4 reloads only until all images 'used' property were equal to 'true' and then would need to break out of the loop)
-      } else if (this.images.every((image) => image.used === true) === true) {
-        this.images.map((img) => {
-          img.used = false
-        })
-      }
-    }
-
-    this.images = newImages
-  }
-
-  ngOnInit() {
     this.imagesService.getImages().subscribe((data: any) => {
       this.images = data
       // console.log(this.images)
     })
 
-    // Set five random non-duplicate images
-    let randomIndex = 0
-    const randomImages = new Array()
+    setTimeout(() => {
+      this.loading = false
+    }, 1000)
+  }
 
-    while (randomImages.length < 5) {
-      randomIndex = Math.floor(Math.random() * this.images.length)
-      if (this.images[randomIndex].used === false) {
-        this.images[randomIndex].used = true
-        randomImages.push(this.images[randomIndex])
-        // reset 'used' property to false
-      } else if (this.images.every((image) => image.used === true) === true) {
-        this.images.map((img) => {
-          img.used = false
-        })
-      }
-    }
+  ngOnInit() {
+    this.imagesService.getImages().subscribe((data: any) => {
+      this.images = data
+    })
 
     // Show a loading state to avoid a flash of empty content
     setTimeout(() => {
-      this.images = randomImages
       this.loading = false
     }, 1000)
   }
