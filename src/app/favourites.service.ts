@@ -24,6 +24,22 @@ export class FavouritesService {
     }
   }
 
+  // removing dog from localStorage
+  removeFavouriteDog(favouriteDog: Image) {
+    const storedDogs = JSON.parse(localStorage.getItem('dogs') || '[]')
+    const foundDog = storedDogs.find((dog: any) => {
+      return dog.url === favouriteDog.url
+    })
+
+    if (foundDog !== undefined) {
+      const index = storedDogs.indexOf(foundDog, 0)
+      storedDogs.splice(index, 1)
+      localStorage.setItem('dogs', JSON.stringify(storedDogs))
+
+      window.alert('Image has been removed from Favourites.')
+    }
+  }
+
   getFavouriteImages() {
     return JSON.parse(localStorage.getItem('dogs') || '[]')
   }
