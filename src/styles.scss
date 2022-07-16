@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-$green: #6ec64e;
+
 $off-white: #efeae4;
-$darker-green: #73ba60;
 
 // FONTS & HEADINGS
 p {
@@ -15,7 +14,6 @@ h1 {
   font-family: 'Caveat', cursive;
   font-size: 78px;
   font-weight: 700;
-  // color: $green;
   margin: 0px;
 }
 
@@ -25,6 +23,7 @@ h2 {
   font-weight: 700;
   margin: 0px;
   color: black;
+  text-align: center;
 }
 
 h3 {

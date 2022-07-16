@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FavouritesService } from '../favourites.service'
-import { faHouse, faBone } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faBone, faPaw } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as fasHeart } from '@fortawesome/free-solid-svg-icons'
 import { Image } from '../images'
 
@@ -14,6 +14,7 @@ export class FavouritesComponent implements OnInit {
   faHouse = faHouse
   fasHeart = fasHeart
   faBone = faBone
+  faPaw = faPaw
   favouriteImages = this.favouritesService.getFavouriteImages()
 
   constructor(private favouritesService: FavouritesService) {}
